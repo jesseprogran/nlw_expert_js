@@ -13,13 +13,13 @@ Aplicação desenvolvida no NLW Expert da Rocketseat na trilha HTML+CSS+JS.
 </p>
 
 <p align="center">
-  <img alt="License" src="https://github.com/jesseprogran/nlw_expert_js/assets/113396724/56a3b179-5496-4b2e-a580-e91d95d38726">
+  <img alt="License" src="">
 </p>
 
 <br>
 
 <p align="center">
-  <img alt="Preview do projeto desenvolvido." src=".github/preview.png" width="80%">
+  <img alt="Preview do projeto desenvolvido." src="https://github.com/jesseprogran/nlw_expert_js/assets/113396724/56a3b179-5496-4b2e-a580-e91d95d38726" width="80%" >
 </p>
 
 ## 🚀 Tecnologias
