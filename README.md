@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="Logo NLW Expert - Rocketseat" src=".github/logo.png" width="200px" />
+  <img alt="Logo NLW Expert - Rocketseat" src="https://github.com/jesseprogran/nlw_expert_js/assets/113396724/7117ebdd-60a1-4f62-b89f-e62e07188de3" width="200px" />
 </p>
 
 <p align="center">
@@ -13,7 +13,7 @@ Aplicação desenvolvida no NLW Expert da Rocketseat na trilha HTML+CSS+JS.
 </p>
 
 <p align="center">
-  <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=49AA26&labelColor=000000">
+  <img alt="License" src="https://github.com/jesseprogran/nlw_expert_js/assets/113396724/56a3b179-5496-4b2e-a580-e91d95d38726">
 </p>
 
 <br>
