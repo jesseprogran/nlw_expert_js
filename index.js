@@ -73,6 +73,11 @@ const perguntas = [
 const quiz = document.querySelector("#quiz");
 const template = document.querySelector("template");
 
+const corretas = new Set();
+const totalDePerguntas = perguntas.length;
+const mostrarTotal = document.querySelector("#acertos span");
+mostrarTotal.textContent = corretas.size + " de " + totalDePerguntas;
+
 // loop ou laço de repetição
 for (const item of perguntas) {
   const quizItem = template.content.cloneNode(true);
