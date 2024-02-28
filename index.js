@@ -1,111 +1,108 @@
-const perguntas = [
+const questions = [
   {
-    pergunta:
-      "Qual é a sintaxe correta para declarar uma variável em JavaScript?",
-    respostas: ["variable x;", "v x;", "var x;"],
-    correta: 2,
+    question: "What is the correct syntax to declare a variable in JavaScript?",
+    answers: ["variable x;", "v x;", "var x;"],
+    correct: 2,
   },
   {
-    pergunta: "Qual destes métodos converte uma string em um número inteiro?",
-    respostas: ["parseInt()", "stringToInt()", "toInteger()"],
-    correta: 0,
+    question: "Which of these methods converts a string into an integer?",
+    answers: ["parseInt()", "stringToInt()", "toInteger()"],
+    correct: 0,
   },
   {
-    pergunta: "O que o método 'push()' faz em JavaScript?",
-    respostas: [
-      "Remove o último elemento de um array.",
-      "Adiciona um elemento ao final de um array.",
-      "Inverte a ordem dos elementos em um array.",
+    question: "What does the 'push()' method do in JavaScript?",
+    answers: [
+      "Remove the last element from an array.",
+      "Add an element to the end of an array.",
+      "Invert the order of elements in an array.",
     ],
-    correta: 1,
+    correct: 1,
   },
   {
-    pergunta: "Qual destes é um operador de atribuição em JavaScript?",
-    respostas: ["=", "==", "==="],
-    correta: 0,
+    question: "Which of these is an assignment operator in JavaScript?",
+    answers: ["=", "==", "==="],
+    correct: 0,
   },
   {
-    pergunta:
-      "Qual destes métodos é usado para selecionar um elemento HTML por seu id em JavaScript?",
-    respostas: [
+    question:
+      "Which of these methods is used to select an HTML element by its id in JavaScript?",
+    answers: [
       "document.selectById()",
       "document.queryId()",
       "document.getElementById()",
     ],
-    correta: 2,
+    correct: 2,
   },
   {
-    pergunta: "O que o operador '===' faz em JavaScript?",
-    respostas: [
-      "Compara se dois valores são iguais, sem considerar o tipo.",
-      "Compara se dois valores são iguais, incluindo o tipo.",
-      "Compara se dois valores são iguais, mas apenas em strings.",
+    question: "What does the '===' operator do in JavaScript?",
+    answers: [
+      "Compares if two values are equal, without considering the type.",
+      "Compares if two values are equal, including the type.",
+      "Compares if two values are equal, but only in strings.",
     ],
-    correta: 1,
+    correct: 1,
   },
   {
-    pergunta:
-      "Qual destes métodos é usado para adicionar um evento a um elemento HTML em JavaScript?",
-    respostas: ["addEventListener()", "attachEvent()", "eventListener()"],
-    correta: 0,
+    question:
+      "Which of these methods is used to add an event to an HTML element in JavaScript?",
+    answers: ["addEventListener()", "attachEvent()", "eventListener()"],
+    correct: 0,
   },
   {
-    pergunta: "O que o método 'pop()' faz em JavaScript?",
-    respostas: [
-      "Adiciona um elemento ao final de um array.",
-      "Remove o primeiro elemento de um array.",
-      "Remove o último elemento de um array.",
+    question: "What does the 'pop()' method do in JavaScript?",
+    answers: [
+      "Add an element to the end of an array.",
+      "Remove the first element from an array.",
+      "Remove the last element from an array.",
     ],
-    correta: 2,
+    correct: 2,
   },
   {
-    pergunta: "Qual é o operador usado para concatenar strings em JavaScript?",
-    respostas: ["+", "&", "|"],
-    correta: 0,
+    question: "What is the operator used to concatenate strings in JavaScript?",
+    answers: ["+", "&", "|"],
+    correct: 0,
   },
   {
-    pergunta: "Qual destes é um tipo de dados primitivo em JavaScript?",
-    respostas: ["Array", "Object", "String"],
-    correta: 2,
+    question: "Which of these is a primitive data type in JavaScript?",
+    answers: ["Array", "Object", "String"],
+    correct: 2,
   },
 ];
 
 const quiz = document.querySelector("#quiz");
 const template = document.querySelector("template");
 
-const corretas = new Set();
-const totalDePerguntas = perguntas.length;
-const mostrarTotal = document.querySelector("#acertos span");
-mostrarTotal.textContent = corretas.size + " de " + totalDePerguntas;
+const correctAnswers = new Set();
+const totalQuestions = questions.length;
+const showTotal = document.querySelector("#correct_answers span");
+showTotal.textContent = correctAnswers.size + " of " + totalQuestions;
 
-// loop ou laço de repetição
-for (const item of perguntas) {
+for (const item of questions) {
+  const { answers, correct } = item;
   const quizItem = template.content.cloneNode(true);
-  quizItem.querySelector("h3").textContent = item.pergunta;
+  quizItem.querySelector("h3").textContent = item.question;
 
-  for (let resposta of item.respostas) {
+  for (let response of answers) {
     const dt = quizItem.querySelector("dl dt").cloneNode(true);
-    dt.querySelector("span").textContent = resposta;
+    dt.querySelector("span").textContent = response;
     dt.querySelector("input").setAttribute(
       "name",
-      "pergunta-" + perguntas.indexOf(item)
+      "question-" + questions.indexOf(item)
     );
-    dt.querySelector("input").value = item.respostas.indexOf(resposta);
+    dt.querySelector("input").value = answers.indexOf(response);
     dt.querySelector("input").onchange = (event) => {
-      const estaCorreta = event.target.value == item.correta;
+      const isCorrect = event.target.value == correct;
 
-      corretas.delete(item);
-      if (estaCorreta) {
-        corretas.add(item);
+      correctAnswers.delete(item);
+      if (isCorrect) {
+        correctAnswers.add(item);
       }
 
-      mostrarTotal.textContent = corretas.size + " de " + totalDePerguntas;
+      showTotal.textContent = correctAnswers.size + " of " + totalQuestions;
     };
     quizItem.querySelector("dl").appendChild(dt);
   }
 
   quizItem.querySelector("dl dt").remove();
-
-  // coloca a pergunta na tela
   quiz.appendChild(quizItem);
 }
