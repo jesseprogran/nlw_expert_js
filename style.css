@@ -122,7 +122,7 @@ input:checked:before {
   counter-reset: quiz-item;
 }
 
-#acertos {
+#correct_answers {
   text-align: center;
   background-color: #a3e635;
 
